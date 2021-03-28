@@ -1,12 +1,19 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link :to="{ name: 'Menu' }">Menu</router-link>
+    <router-link :to="{ name: 'Games' }">Games</router-link>
+    <router-link :to="{ name: 'Music' }">Music</router-link>
+    <router-link :to="{ name: 'Checkout' }">Checkout</router-link>
+    <router-link :to="{ name: 'Help' }">Help</router-link>
+    <router-link :to="{ name: 'Refill' }">Refill</router-link>
   </div>
   <router-view/>
 </template>
 
 <style>
+body {
+  background-color: #ddd;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -22,9 +29,21 @@
 #nav a {
   font-weight: bold;
   color: #2c3e50;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 4px;
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: white;
+  background: crimson
+}
+
+.navbar .navbar-nav .nav-link {
+    color: #000000;
+    font-size: 1.1em;
+}
+.navbar .navbar-nav .nav-link:hover{
+    color: #808080;
 }
 </style>

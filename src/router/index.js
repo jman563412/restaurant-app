@@ -1,19 +1,58 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
+import Menu from '../views/menu/Menu.vue'
+import SubMenu from '../views/menu/SubMenu.vue'
+import Games from '../views/Games.vue'
+import Music from '../views/Music.vue'
+import Checkout from '../views/Checkout.vue'
+import Help from '../views/Help.vue'
+import Refill from '../views/Refill.vue'
+import NotFound from '../views/NotFound.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    redirect: '/menu'
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/menu',
+    name: 'Menu',
+    component: Menu
+  },
+  {
+    path: '/menu/:submenu',
+    name: 'SubMenu',
+    component: SubMenu,
+    props: true
+  },
+  {
+    path: '/games',
+    name: 'Games',
+    component: Games
+  },
+  {
+    path: '/music',
+    name: 'Music',
+    component: Music
+  },
+  {
+    path: '/checkout',
+    name: 'Checkout',
+    component: Checkout
+  },
+  {
+    path: '/help',
+    name: 'Help',
+    component: Help
+  },
+  {
+    path: '/refill',
+    name: 'Refill',
+    component: Refill
+  },
+  {
+    path: '/:catchAll(.*)',
+    name: 'NotFound',
+    component: NotFound
   }
 ]
 
