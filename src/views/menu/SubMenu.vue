@@ -1,6 +1,5 @@
 <template>
-  <h1>SubMenu</h1>
-  
+  <h1>Submenu</h1>
 </template>
 
 <script>
