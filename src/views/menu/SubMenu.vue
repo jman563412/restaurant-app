@@ -1,5 +1,5 @@
 <template>
-  <h1>Job Details Page</h1>
+  <h1>SubMenu</h1>
   
 </template>
 

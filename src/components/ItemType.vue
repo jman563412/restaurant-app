@@ -1,24 +1,28 @@
 <template>
-  <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-    <div class="bg-white rounded shadow-sm"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556294929/matthew-hamilton-351641-unsplash_zmvozs.jpg" alt="" class="img-fluid card-img-top">
-      <div class="p-4">
-        <h5> <a href="#" class="text-dark">Entrees</a></h5>
-        <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-        <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-          <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">JPG</span></p>
-          <div class="badge badge-danger px-3 rounded-pill font-weight-normal">New</div>
-        </div>
-      </div>
+  <div class="card">
+    <img :src="image" class="card-img-top" />
+    <div class="card-body">
+      <h5 class="card-title">{{ foodType }}</h5>
+      <p class="card-text">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi omnis, praesentium harum debitis architecto ullam fuga quo.
+      </p>
+      <router-link :to="{ name: 'SubMenu', params: { submenu: foodType }}" class="btn btn-primary">
+        Browse {{ foodType }}
+      </router-link>
     </div>
   </div>
+  <slot name="foodInfo"></slot>
 </template>
 
 <script>
 export default {
-
+  props: ['image', 'foodType']
 }
 </script>
 
 <style>
+  .card {
+    margin: 10px;
+  }
 
 </style>
