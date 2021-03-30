@@ -6,8 +6,14 @@
       <p class="card-text">
         {{price}}
       </p>
-      <router-link :to="{ path: '/menu/' + foodType + name}" class="btn btn-primary">
-        View Item {{ foodType }}
+      <p class="card-text">
+        Ingredients - {{ingredients}}
+      </p>
+      <p class="card-text">
+        Allergens - {{allergens}}
+      </p>
+      <router-link :to="{ path: '/menu/' + foodType}" class="btn btn-primary">
+        Add To Cart {{ foodType }}
       </router-link>
     </div>
   </div>

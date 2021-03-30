@@ -1,9 +1,9 @@
 export const appetizersEntries = [
     {
       "foodType": "Appetizers",
-      "name": "app man 1",
-      "image": require("@/assets/img/entrees.jpg"),
-      "price": "$25.99",
+      "name": "Nachos",
+      "image": require("@/assets/img/Nachos.jpg"),
+      "price": "$9.99",
       "calories": 610,
       "ingredients": [
         "Brioche Bun",
@@ -17,14 +17,82 @@ export const appetizersEntries = [
       ]
     },
     {
-      "name": "4 Chicken Tendies",
       "foodType": "Appetizers",
-      "image": require("@/assets/img/entrees.jpg"),
-      "price": "$12.99",
+      "name": "Fried Pickles",
+      "image": require("@/assets/img/FriedPickles.jpg"),
+      "price": "$9.99",
       "calories": 520,
       "ingredients": [
         "Chicken",
         "Breading"
+      ],
+      "allergens": [
+        "Eggs",
+        "Wheat",
+        "Milk"
+      ]
+    },
+    {
+      "foodType": "Appetizers",
+      "name": "Mozzarella Sticks",
+      "image": require("@/assets/img/MozzarellaSticks.jpg"),
+      "price": "$9.99",
+      "calories": 610,
+      "ingredients": [
+        "Brioche Bun",
+        "Mayo",
+        "Pickles"
+      ],
+      "allergens": [
+        "Eggs",
+        "Wheat",
+        "Milk"
+      ]
+    },
+    {
+      "foodType": "Appetizers",
+      "name": "Fried Mac and Cheese",
+      "image": require("@/assets/img/FriedMacAndCheese.jpg"),
+      "price": "$9.99",
+      "calories": 610,
+      "ingredients": [
+        "Brioche Bun",
+        "Mayo",
+        "Pickles"
+      ],
+      "allergens": [
+        "Eggs",
+        "Wheat",
+        "Milk"
+      ]
+    },
+    {
+      "foodType": "Appetizers",
+      "name": "Garlic Bread",
+      "image": require("@/assets/img/GarlicBread.jpg"),
+      "price": "$9.99",
+      "calories": 610,
+      "ingredients": [
+        "Brioche Bun",
+        "Mayo",
+        "Pickles"
+      ],
+      "allergens": [
+        "Eggs",
+        "Wheat",
+        "Milk"
+      ]
+    },
+    {
+      "foodType": "Appetizers",
+      "name": "Garlic Bread With Cheese",
+      "image": require("@/assets/img/GarlicBreadWithCheese.jpg"),
+      "price": "$9.99",
+      "calories": 610,
+      "ingredients": [
+        "Brioche Bun",
+        "Mayo",
+        "Pickles"
       ],
       "allergens": [
         "Eggs",
