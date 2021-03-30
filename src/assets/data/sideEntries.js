@@ -1,29 +1,35 @@
-export const entreeEntries = [
+export const sideEntries = [
   {
-    "name": "French Fries",
-    "image": require(""),
-    "price": 3.78,
-    "calories": 290,
+    "foodType": "Side",
+    "name": "Side 1",
+    "image": require("@/assets/img/entrees.jpg"),
+    "price": "$25.99",
+    "calories": 610,
     "ingredients": [
-      "potatos",
+      "Brioche Bun",
+      "Mayo",
+      "Pickles"
     ],
     "allergens": [
-      "Insert",
-      "Allergens"
+      "Eggs",
+      "Wheat",
+      "Milk"
     ]
   },
   {
-    "name": "Salad",
-    "image": require(""),
-    "price": 3.52,
-    "calories": 105,
+    "name": "Side 2",
+    "foodType": "Side 444",
+    "image": require("@/assets/img/entrees.jpg"),
+    "price": "$12.99",
+    "calories": 520,
     "ingredients": [
-      "Insert",
-      "Ingredients"
+      "Chicken",
+      "Breading"
     ],
     "allergens": [
-      "Insert",
-      "Allergens"
+      "Eggs",
+      "Wheat",
+      "Milk"
     ]
   }
 ]

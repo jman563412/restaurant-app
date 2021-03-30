@@ -1,8 +1,9 @@
 export const entreeEntries = [
   {
-    "name": "Chicken Sandwhich",
-    "image": require(""),
-    "price": 25,
+    "foodType": "Entrees",
+    "name": "Chicken Sandwich",
+    "image": require("@/assets/img/entrees.jpg"),
+    "price": "$25.99",
     "calories": 610,
     "ingredients": [
       "Brioche Bun",
@@ -17,8 +18,9 @@ export const entreeEntries = [
   },
   {
     "name": "4 Chicken Tendies",
-    "image": require(""),
-    "price": 12,
+    "foodType": "Entrees",
+    "image": require("@/assets/img/entrees.jpg"),
+    "price": "$12.99",
     "calories": 520,
     "ingredients": [
       "Chicken",

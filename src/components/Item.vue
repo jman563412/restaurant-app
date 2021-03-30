@@ -2,12 +2,12 @@
   <div class="card">
     <img :src="image" class="card-img-top" />
     <div class="card-body">
-      <h5 class="card-title">{{ foodType }}</h5>
+      <h5 class="card-title">{{ name }}</h5>
       <p class="card-text">
-        This is a itemType
+        {{price}}
       </p>
-      <router-link :to="{ path: '/menu/' + foodType}" class="btn btn-primary">
-        Browse {{ foodType }}
+      <router-link :to="{ path: '/menu/' + foodType + name}" class="btn btn-primary">
+        View Item {{ foodType }}
       </router-link>
     </div>
   </div>
@@ -16,9 +16,13 @@
 
 <script>
 export default {
-  props:{
-    image: String,
-    foodType: String
+  props: {
+      image: String,
+      name: String,
+      price: String,
+      calories: String,
+      ingredients: Array,
+      allergens: Array
   }
 }
 </script>
