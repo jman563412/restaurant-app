@@ -6,12 +6,13 @@ import {createStore} from 'vuex'
 const store = createStore({
     state() {
         return {
+            order: [],
             count: 0
     }
 },
 mutations: {
     increment (state) {
-        state.count++
+        state.count++;
     }
 }
 

@@ -37,7 +37,11 @@ export default {
   methods: {
     addItemToOrder(name){
         console.log(name+" Added To Order");
-        console.log(this.$store.state.count);
+        
+        this.$store.state.order.push((name));
+        console.log(this.$store.state.order[this.$store.state.count]);
+        this.$store.commit('increment')
+        console.log(this.$store.state.count)
     }
   },
   
