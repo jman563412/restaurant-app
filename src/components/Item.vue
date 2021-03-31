@@ -19,7 +19,6 @@
 </template>
 
 <script>
-import orderMixin from '@/assets/data/orderMixin'
 export default {
   props: {
       image: String,
@@ -33,11 +32,9 @@ export default {
   methods: {
     addItemToOrder(name){
         console.log(name+" Added To Order");
-        orderMixin.push(name);
         //console.log(listdata[0]);
     }
   },
-  mixins: [orderMixin]
 }
 </script>
 

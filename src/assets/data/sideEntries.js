@@ -1,4 +1,4 @@
-export const sideEntries = [
+export const entires = [
   {
     "foodType": "Side",
     "name": "Baked Beans",

@@ -1,4 +1,4 @@
-export const nonAlcoholicDrinksEntries = [
+export const entires = [
     {
       "foodType": "Non-Alcoholic-Drinks",
       "name": "Coke",

@@ -1,4 +1,4 @@
-export const dessertEntries = [
+export const entires = [
     {
       "foodType": "Desserts",
       "name": "Chocolate Cake",
