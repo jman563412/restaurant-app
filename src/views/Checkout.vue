@@ -1,12 +1,13 @@
 <template> 
-  <h1>Checkout</h1>
     <div class="container">
     <div class="row">
       <div v-for="item in this.$store.state.order" v-bind:key="item" class="col-12">
-          <checkoutBox :name="item" :price="item" />
-      </div>
+          <checkoutBox :priceFloat="item.priceFloat" :quan="getQuantity(item.name)" :name="item.name" :price="item.price" />
+      </div>   
     </div>
   </div>
+
+
 </template>
 
 <script>
@@ -18,6 +19,18 @@ export default {
       return this.$store.state.order;
     }
   },
+  methods: {
+    getQuantity(name){
+      var i;
+      for(i = 0; i < this.$store.state.count; i++){
+        if(name == this.$store.state.order[i].name){
+          return this.$store.state.quantity[i];
+        }
+      }
+      return 0;
+    }
+  }
+
 }
 </script>
 

@@ -12,7 +12,7 @@
       <p class="card-text">
         Allergens - {{allergens}}
       </p>
-      <button v-on:click="addItemToOrder(name)">Add To Order!</button>
+      <button class="button3" v-on:click="addItemToOrder(name,price,calories,ingredients,allergens,priceFloat)">Add To Order!</button>
     </div>
   </div>
   <!-- <slot name="foodInfo"></slot> -->
@@ -26,23 +26,42 @@ export default {
     }
   },
   props: {
-      image: String,
+      image: String,     
       name: String,
       price: String,
       calories: String,
       ingredients: Array,
       allergens: Array,
-      listdata: Array
+      priceFloat: Number
   },
   methods: {
-    addItemToOrder(name){
+    addItemToOrder(name,price,calories,ingredients,allergens,priceFloat){
+
         console.log(name+" Added To Order");
+        //Loop through each order
+            //if name of item trying to be added is already in the order 
+                //at quantity[count] increment
+
+            //else
+                //Push new order
+                //Push new quantity with value of 1
+                //Increment count
+        var i;
+        var inOrder = 0;
+        for(i = 0; i < this.$store.state.count; i++) {
+          if(name == this.$store.state.order[i].name){
+              this.$store.state.quantity[i]++;
+              console.log(this.$store.state.quantity[i]);
+              inOrder = 1;
+          }
+        }
+        if(inOrder == 0){
+          this.$store.state.order.push(({name,price,calories,ingredients,allergens,priceFloat}));
+          this.$store.state.quantity.push(1);
+          this.$store.commit('increment')
+        }
         
-        this.$store.state.order.push((name));
-        console.log(this.$store.state.order[this.$store.state.count]);
-        this.$store.commit('increment')
-        console.log(this.$store.state.count)
-    }
+    },
   },
   
 }
@@ -52,5 +71,16 @@ export default {
   .card {
     margin: 10px;
   }
-
+  .button3 {
+  background-color: #1f7bc7;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
 </style>
