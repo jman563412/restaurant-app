@@ -1,8 +1,7 @@
-<template>
+<template> 
   <h1>Checkout</h1>
-  <h2>order</h2>
+    <li v-for="item in this.$store.state.order" v-bind:key="item"> {{item}}</li>
 </template>
-
 <script>
 </script>
 
