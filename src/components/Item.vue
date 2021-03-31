@@ -20,6 +20,11 @@
 
 <script>
 export default {
+  computer: {
+    users() {
+      return this.$store.state.order;
+    }
+  },
   props: {
       image: String,
       name: String,
@@ -32,9 +37,10 @@ export default {
   methods: {
     addItemToOrder(name){
         console.log(name+" Added To Order");
-        //console.log(listdata[0]);
+        console.log(this.$store.state.count);
     }
   },
+  
 }
 </script>
 
