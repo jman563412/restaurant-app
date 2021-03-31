@@ -5,6 +5,7 @@
           <checkoutBox :priceFloat="item.priceFloat" :quan="getQuantity(item.name)" :name="item.name" :price="item.price" />
       </div>   
     </div>
+    <totalBox/>
   </div>
 
 
@@ -12,8 +13,9 @@
 
 <script>
 import checkoutBox from '@/components/checkoutBox.vue'
+import totalBox from '@/components/totalBox.vue'
 export default {
-  components: { checkoutBox },
+  components: { checkoutBox, totalBox },
   computer: {
     users() {
       return this.$store.state.order;

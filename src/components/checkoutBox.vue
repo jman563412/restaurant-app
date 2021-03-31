@@ -1,16 +1,14 @@
 <template>
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title"><font size="+4">{{ name }}</font></h5>
+      <h5 class="card-title"><font size="+3">{{ name }}</font></h5>
       <p class="card-text">
-          <br>
         <button class="button2" v-on:click="decrementQuan(name)">-</button> &emsp; 
         <font size="+2">Quantity  - {{ quan }}</font>
         &emsp;
         <button class="button" v-on:click="incremenetQuan(name)">+</button>
         <br>
-        <br>
-        <font size="+2">Price - ${{ priceFloat * quan}}</font>
+        <font size="+0">Price - ${{ priceFloat * quan}}</font>
       </p>
 
     </div>
