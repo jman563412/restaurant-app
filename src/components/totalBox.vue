@@ -11,6 +11,7 @@
       </p>
       <h2 align="Center" class="card2">
             <p align="left">
+                <br>
                 Sub - ${{computeSubtotal().toFixed(2)}}
                 <br>
                 Tax - ${{computeTax().toFixed(2)}}
@@ -23,6 +24,10 @@
                  <br>
                 Total - ${{computeTotal().toFixed(2)}}
                 <br>
+                <br>
+                <router-link align="right" :to="{ path: '/payment' }" class="button3">
+                    <font size="+3">Click to Pay</font>
+                </router-link>
                 </p>
 
       </h2>
@@ -79,7 +84,7 @@ export default {
   }
   .card2 {
     margin: 10px;
-    width: 40%;
+    width: 100%;
     text-align: left;
     padding: 15px 32px;
     border:rgb(4, 228, 161);

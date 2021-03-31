@@ -6,7 +6,7 @@
       <p class="card-text">
         This is a itemType
       </p>
-      <router-link :to="{ path: '/menu/' + foodType}" class="btn btn-primary">
+      <router-link :to="{ path: '/menu/' + foodType}" class="button5">
         Browse {{ foodType }}
       </router-link>
     </div>
@@ -27,5 +27,16 @@ export default {
   .card {
     margin: 10px;
   }
-
+  .button5 {
+  background-color: #1f7bc7;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
 </style>

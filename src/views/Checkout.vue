@@ -1,10 +1,12 @@
 <template> 
     <div class="container">
-    <div class="row">
+    <div class="card3">
       <div v-for="item in this.$store.state.order" v-bind:key="item" class="col-12">
           <checkoutBox :priceFloat="item.priceFloat" :quan="getQuantity(item.name)" :name="item.name" :price="item.price" />
       </div>   
     </div>
+    <br>
+    <br>
     <totalBox/>
   </div>
 
@@ -37,5 +39,11 @@ export default {
 </script>
 
 <style>
-
+.card3 {
+    margin: 10px;
+    width: 100%;
+    padding: 15px 32px;
+    border:rgb(4, 228, 161);
+    background-color:rgb(16, 155, 190);
+  }
 </style>

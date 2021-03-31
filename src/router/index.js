@@ -12,6 +12,7 @@ import Checkout from '../views/Checkout.vue'
 import Help from '../views/Help.vue'
 import Refill from '../views/Refill.vue'
 import NotFound from '../views/NotFound.vue'
+import Payment from '../views/Payment.vue'
 
 const routes = [
   {
@@ -88,6 +89,11 @@ const routes = [
     path: '/:catchAll(.*)',
     name: 'NotFound',
     component: NotFound
+  },
+  {
+    path:'/payment',
+    name: 'Payment',
+    component: Payment
   }
 ]
 
