@@ -4,7 +4,7 @@ export const entires = [
       "name": "Chocolate Cake",
       "image": require("@/assets/img/Chocolatecake.jpg"),
       "price": "$7.99",
-      "calories": 610,
+      "calories": "610",
       "ingredients": [
         "Brioche Bun",
         "Mayo",
@@ -21,7 +21,7 @@ export const entires = [
       "foodType": "Desserts",
       "image": require("@/assets/img/IceCream.jpg"),
       "price": "$7.99",
-      "calories": 520,
+      "calories": "610",
       "ingredients": [
         "Chicken",
         "Breading"
@@ -37,7 +37,7 @@ export const entires = [
       "foodType": "Desserts",
       "image": require("@/assets/img/Tiramisu.jpg"),
       "price": "$7.99",
-      "calories": 520,
+      "calories": "610",
       "ingredients": [
         "Chicken",
         "Breading"
@@ -53,7 +53,7 @@ export const entires = [
       "foodType": "Desserts",
       "image": require("@/assets/img/VanillaCake.jpg"),
       "price": "$7.99",
-      "calories": 520,
+      "calories": "610",
       "ingredients": [
         "Chicken",
         "Breading"
@@ -69,7 +69,7 @@ export const entires = [
       "foodType": "Desserts",
       "image": require("@/assets/img/CheeseCake.jpg"),
       "price": "$7.99",
-      "calories": 520,
+      "calories": "610",
       "ingredients": [
         "Chicken",
         "Breading"
@@ -85,7 +85,7 @@ export const entires = [
       "foodType": "Desserts",
       "image": require("@/assets/img/Cannoli.jpg"),
       "price": "$7.99",
-      "calories": 520,
+      "calories": "610",
       "ingredients": [
         "Chicken",
         "Breading"
