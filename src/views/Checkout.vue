@@ -7,6 +7,8 @@
     </div>
     <br>
     <br>
+    <br>
+    <br>
     <totalBox/>
   </div>
 
