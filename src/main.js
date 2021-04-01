@@ -9,8 +9,8 @@ const store = createStore({
             order: [],
             quantity: [],
             count: 0,
-            tip: 0,
-            tipPercent: 0
+            tipPercent: 0,
+            specialInstructions: "                                      "
     }
 },
 mutations: {
