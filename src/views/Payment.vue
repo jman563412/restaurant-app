@@ -1,6 +1,7 @@
 <!--This payment form was created bu Kabir Bhatia and was used from bbboostrap.com -->
 
 <template>
+  <h1>Payment</h1>
   <div class="container-fluid">
     <div class="row d-flex justify-content-center">
         <div class="col-sm-12">
@@ -32,6 +33,16 @@
         </div>
     </div>
 </div>
+
+  <div class="ReviewBox">  
+    <label >Write a Review:</label>
+    <br>
+    <textarea rows="10" cols="100">
+      </textarea>
+      <br>
+      <button class="submit">submit</button>
+  </div>
+
 </template>
 
 <script>
