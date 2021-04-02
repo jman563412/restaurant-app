@@ -35,12 +35,12 @@
 </div>
 
   <div class="ReviewBox">  
-    <label >Write a Review:</label>
+    <label ><font size="+2">Write a Review</font></label>
     <br>
     <textarea rows="10" cols="100">
       </textarea>
       <br>
-      <button class="submit">submit</button>
+      <button class="submit">Submit</button>
   </div>
 
 </template>
@@ -130,5 +130,17 @@ input {
 
 .col-sm-5 {
     padding-left: 90px
+}
+.submit {
+  background-color: #e79804;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
 </style>
