@@ -14,9 +14,11 @@ import Refill from '../views/Refill.vue'
 import NotFound from '../views/NotFound.vue'
 import Payment from '../views/Payment.vue'
 import PaymentComplete from '../views/paymentComplete.vue'
+import orderComplete from '../views/orderComplete.vue'
 import Login from '../views/Login.vue'
 import TicTacToe from '../views/TicTacToe.vue'
 import ButtonClicker from '../views/ButtonClicker.vue'
+import Pay from '../views/Pay.vue'
 
 const routes = [
   {
@@ -32,6 +34,11 @@ const routes = [
     path: '/menu',
     name: 'Menu',
     component: Menu
+  },
+  {
+    path: '/pay',
+    name: 'Pay',
+    component: Pay
   },
   {
     path: '/menu/Entrees',
@@ -108,6 +115,11 @@ const routes = [
     path:'/paymentComplete',
     name: 'PaymentComplete',
     component: PaymentComplete
+  },
+  {
+    path:'/orderComplete',
+    name: 'OrderComplete',
+    component: orderComplete
   },
   {
     path: '/games/TicTacToe',

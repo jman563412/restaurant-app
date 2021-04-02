@@ -1,11 +1,7 @@
 <template>
   <div class="footer">
-      <h1><font size="+20">CHECKOUT</font></h1>
+      <h1><font size="+20"></font></h1>
     <div class="card-body">
-      <h2 align="Center" class="card3">
-        <h5 class="card-title"><font size="+10">Add Special Instructions</font></h5>
-              <input class="button4" type="text" v-model="this.$store.state.specialInstructions">
-      </h2>
       <h5 class="card-title"><font size="+3"></font></h5>
       <p  align="left" class="card-text"> 
             <button class="button3" v-on:click="computeTip(15)">15%</button>

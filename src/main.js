@@ -17,6 +17,11 @@ const store = createStore({
 mutations: {
     increment (state) {
         state.count++;
+    },
+    eraseOrder (state) {
+        state.order = [];
+        state.quantity = [];
+        specialInstructions = "";
     }
 }
 

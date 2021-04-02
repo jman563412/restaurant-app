@@ -10,7 +10,15 @@
     <br>
     <br>
     <br>
-    <totalBox/>
+          <h2 align="Center" class="card3">
+        <h5 class="card-title"><font size="+10">Add Special Instructions</font></h5>
+              <input class="button4" type="text" v-model="this.$store.state.specialInstructions">
+      </h2>
+      <router-link class="button3" :to="{ name: 'OrderComplete' }">Click to Send Order</router-link>
+      <br>
+      <br>
+      <br>
+      <br>
   </div>
 
 
