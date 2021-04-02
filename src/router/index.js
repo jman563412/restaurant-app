@@ -15,6 +15,7 @@ import NotFound from '../views/NotFound.vue'
 import Payment from '../views/Payment.vue'
 import PaymentComplete from '../views/paymentComplete.vue'
 import Login from '../views/Login.vue'
+import TicTacToe from '../views/TicTacToe.vue'
 
 const routes = [
   {
@@ -106,6 +107,11 @@ const routes = [
     path:'/paymentComplete',
     name: 'PaymentComplete',
     component: PaymentComplete
+  },
+  {
+    path: '/games/TicTacToe',
+    name: 'TicTacToe',
+    component: TicTacToe
   }
 ]
 
