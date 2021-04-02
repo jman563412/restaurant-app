@@ -16,6 +16,7 @@ import Payment from '../views/Payment.vue'
 import PaymentComplete from '../views/paymentComplete.vue'
 import Login from '../views/Login.vue'
 import TicTacToe from '../views/TicTacToe.vue'
+import ButtonClicker from '../views/ButtonClicker.vue'
 
 const routes = [
   {
@@ -112,6 +113,11 @@ const routes = [
     path: '/games/TicTacToe',
     name: 'TicTacToe',
     component: TicTacToe
+  },
+  {
+    path: '/games/ButtonClicker',
+    name: 'ButtonClicker',
+    component: ButtonClicker
   }
 ]
 
