@@ -8,7 +8,7 @@
         &emsp;
         <button class="button" v-on:click="incremenetQuan(name)">+</button>
         <br>
-        <font size="+0">Price - ${{ priceFloat * quan}}</font>
+        <font size="+0">Price - ${{ (priceFloat * quan).toFixed(2)}}</font>
       </p>
 
     </div>
@@ -29,7 +29,10 @@ export default {
         var i;
         for(i = 0; i < this.$store.state.count; i++){
             if(name == this.$store.state.order[i].name){
+              if(this.$store.state.quantity[i] < 20){
                 this.$store.state.quantity[i]++;
+              }
+                
             }
         }
         return 0;
@@ -38,7 +41,9 @@ export default {
         var i;
         for(i = 0; i < this.$store.state.count; i++){
             if(name == this.$store.state.order[i].name){
+              if(this.$store.state.quantity[i] > 0){
                 this.$store.state.quantity[i]--;
+              }  
             }
         }
         return 0;
