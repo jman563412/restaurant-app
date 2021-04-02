@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "artful-oxygen-306721",
+  "private_key_id": "2dab23816e59c42a6521831b5df4f72b091dacaf",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCvBPwUiP1VoWrk\nBTW2QwY4NYJPTAHIAIGO0/V7wOzFIGDn5jzXN52GkI5Hwmp+/0cuW2dBH09rKVPQ\nZKHSQppTbLALgLkTOSIyyZqZplJaARbRt31UTv4qsYd45Lx9eCpt32+odhy7jWwQ\nVFC/wHwrW0QAbwY1/LZzC1ZTnLClA+XsfJHTPgi1QSXQbbi7AUjbNOGsRZZu4NHT\n1rwNmtFyRqJRs/tkPPfVA51EeAcanLtcjQ1sJ63ZPANsc0Teoslku+PTPm2Uwm7G\nzIRVl9CK8/dSbbys2WO6rFUQMU7yqHcRBUC+rAMpg5QKGE3sqr5ZEiMyWsla6gBU\nXrLLCWXFAgMBAAECgf9n6o3Bo5THQxA0UuORVDpdJWg5rOdh2OsT4sXetK3gXVks\nV4fIQT1GqI3SDZ0tymR5Icws3mpJNkCNezKZpPH8lovwSH2a7FFh1lH06Mv8pKjn\n3AqOBFjlAINvRGCmHrMSiZfCbl6g/VcsWuOW9rLDC21U1JbbdzDdHd4jxuUbFDoP\nL+xiVyzjCccsw0nvlHyV/UGIwmhu17Ne1ADkxfS5ZYaS/0q5eigznW4Yqb3eQIFy\nZSuMkS1kMsRglhdHEAJPIRPQerWxwv1jpCJGWWcfk2yGJSi16/Rfos3bmJ9599T3\nyoeObkVSBgCROqxWVybM4GNXX4fsmEZMIGOpKCECgYEA1kJQ/TDJVpvmGP0TfwiS\nGa3sK8KCrbCHkra7VDyFkIGcADQNJcmQUaTbsIdT02QKOQ22Ijk9qNdCJdY+IJmb\nawZ/Bd0cEhKTMY4p1jeT0LnPWaPBAOfz6RjQ08FdVxqdkJLaluqwf9xYjEPymFtU\n0ZMYmRTCyYYmSVlkLCsQozMCgYEA0R2u+mi/ivquJAu0ZE9Ja4duB47JvlBz+ASj\nMmP8PmsFKObgUrRTleMQ91SQQ6kb/BQPJI5N2UnDtDI+dVdL8ES95no/yl+00tyg\nHWqs9pmZlsb6vbI78AeZhYdqvMY0fH7NManxsuDiEOJjnrgMrjh0K27Wh8BXlyl2\nAD8NUycCgYAsrZN52IyDdOrcVxmTqdPdavkOfvcFBQSgQV56yEwJwB0ppbEAKjHf\n9IKjIvUF5ZyEHSnXpRwIcyql/TDjV2SjQq2GKX9K/XiYIs7yjpBSPAzS4mTCrZud\nBcG2BmJSYYhtt1HBmprHbslAJoMV5iWftg6xDTU5FLIzJWLQGwLTJQKBgQClBAuE\nRwx/m3m3sBTV40tIs0I8bIz+xXX+DYrKxOPUTZdww1/ZY7th2CEXS3/cJKKUtS+N\n5U3BXdg1ZkCrUAv4ugYwzd9wzz1d+APRstByeJsexD4xW2i47QZUvJuaA75/T4CU\n5Ep6ocNDF6MNKKe5A4uIipp33WxBONKJNzhImQKBgQCWhzB1svHxtH6JuUbnJ4pq\nQ+58o441XyIHUl4yqdskAtQ84VMn+drRqItSAPETTAv0oI1gVrQgba8DiDfAXqj6\nqFyipL/WvxyBb5dCXgzY0U6/9msccLLkIu2shaXKY5uja0feFPkhMuOjRhoZQDCQ\nTygSV+8bWQuRPcQUc1edwA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "admin-469@artful-oxygen-306721.iam.gserviceaccount.com",
+  "client_id": "111380222258885005948",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/admin-469%40artful-oxygen-306721.iam.gserviceaccount.com"
+}
