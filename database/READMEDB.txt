@@ -49,5 +49,3 @@ Mysql library for JS documentation:
 https://www.npmjs.com/package/mysql#performing-queries
 
 ^^ You can just install the package for JS with npm install mysql
-
-
