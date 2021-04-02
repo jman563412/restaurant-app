@@ -7,12 +7,12 @@
               <input class="button4" type="text" v-model="this.$store.state.specialInstructions">
       </h2>
       <h5 class="card-title"><font size="+3"></font></h5>
-      <p  align="center" class="card-text"> 
+      <p  align="left" class="card-text"> 
             <button class="button3" v-on:click="computeTip(15)">15%</button>
             <button class="button3" v-on:click="computeTip(20)">20%</button>
             <button class="button3" v-on:click="computeTip(25)">25%</button>
             <input class="button3" type="text" v-model="this.$store.state.tipPercent">
-            <font size="+1">Custom Tip</font>
+            <font size="+1"> Enter Percent</font>
       </p>
       
       <h2 align="Center" class="card2">
@@ -92,14 +92,14 @@ export default {
     text-align: center;
     padding: 15px 32px;
     border:rgb(4, 228, 161);
-    background-color:rgb(16, 155, 190);
+    background-color:rgb(255, 255, 255);
   }
   .card3 {
     margin: 10px;
     width: 100%;
     text-align: center;
     padding: 15px 32px;
-    border:rgb(161, 161, 161);
+    border:rgb(255, 255, 255);
     background-color:rgb(255, 255, 255);
     display: inline-block;
   }
@@ -128,7 +128,7 @@ export default {
   cursor: pointer;
 }
 .button4 {
-  background-color: #d8d8d8;
+  background-color: #ffffff;
   display: inline-block;
   width: 100%;
   border: none;
@@ -167,7 +167,7 @@ export default {
     text-align: center;
     height:100px;
     width:40%;
-    background-color:rgb(16, 112, 190);
+    background-color:rgb(255, 255, 255);
 
     padding-right: 30px;
     padding-left: 30px;

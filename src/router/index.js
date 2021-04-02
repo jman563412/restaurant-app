@@ -13,6 +13,7 @@ import Help from '../views/Help.vue'
 import Refill from '../views/Refill.vue'
 import NotFound from '../views/NotFound.vue'
 import Payment from '../views/Payment.vue'
+import PaymentComplete from '../views/paymentComplete.vue'
 import Login from '../views/Login.vue'
 
 const routes = [
@@ -100,6 +101,11 @@ const routes = [
     path:'/payment',
     name: 'Payment',
     component: Payment
+  },
+  {
+    path:'/paymentComplete',
+    name: 'PaymentComplete',
+    component: PaymentComplete
   }
 ]
 
