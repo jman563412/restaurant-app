@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import {DBOperations} from '../../database/connectdb.js'
+import {webHooks} from '../../database/webHooks.js'
 
 export default {
 components: {

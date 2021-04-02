@@ -1,3 +1,6 @@
+//THIS IS NO LONGER USED INSIDE THE ACTUAL PROJECT
+//THESE DB COMMANDS HAVE BEEN MOVED TO GOOGLE CLOUD FUNCTIONS
+
 const mysql = require('mysql');
 
 export class DBOperations{
