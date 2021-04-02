@@ -12,16 +12,14 @@ const store = createStore({
             tipPercent: 0,
             specialInstructions: "",
             review: "",
+            paymentOrder: [],
+            paymentQuantity: [],
+            paymentCount: 0,
     }
 },
 mutations: {
     increment (state) {
         state.count++;
-    },
-    eraseOrder (state) {
-        state.order = [];
-        state.quantity = [];
-        specialInstructions = "";
     }
 }
 

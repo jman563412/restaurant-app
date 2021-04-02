@@ -14,7 +14,7 @@
         <h5 class="card-title"><font size="+10">Add Special Instructions</font></h5>
               <input class="button4" type="text" v-model="this.$store.state.specialInstructions">
       </h2>
-      <router-link class="button3" :to="{ name: 'OrderComplete' }">Click to Send Order</router-link>
+      <router-link class="button3" v-on:click="eraseOrder()" :to="{ name: 'OrderComplete' }" >Click to Send Order</router-link>
       <br>
       <br>
       <br>
@@ -43,7 +43,21 @@ export default {
         }
       }
       return 0;
-    }
+    },
+    eraseOrder () {
+        var i;
+        for(var i; i < this.$store.state.count; i++){
+            this.$store.state.paymentOrder.push(state.order[i]);
+            this.$store.state.paymentQuantity.push(state.quantity[i]);
+        }
+        this.$store.state.paymentCount = this.$store.state.paymentCount + this.$store.state.count;
+        console.log(this.$store.state.paymentCount);
+        this.$store.state.order = [];
+        this.$store.state.quantity = [];
+        this.$store.state.specialInstructions = "";
+        this.$store.state.count = 0;
+        
+    },
   }
 
 }

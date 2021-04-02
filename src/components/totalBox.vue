@@ -45,24 +45,27 @@ export default {
       computeTotal(){
         var i;
         var tot = 0;
-        for(i = 0; i < this.$store.state.count; i++){
-            console.log(this.$store.state.order[i].priceFloat);
-            tot = tot + (this.$store.state.order[i].priceFloat * this.$store.state.quantity[i]);
+        console.log(this.$store.state.paymentCount);
+        for(i = 0; i < this.$store.state.paymentCount; i++){
+            console.log(this.$store.state.paymentOrder[i].priceFloat);
+            tot = tot + (this.$store.state.paymentOrder[i].priceFloat * this.$store.state.paymentQuantity[i]);
         }
-        if(this.$store.state.count == 0){
+        if(this.$store.state.paymentCount == 0){
             return 0;
         }
         tot = tot + (tot * .0825)  + this.$store.state.tip;
+        console.log("Order item 1  " + this.$store.state.paymentOrder[0] );
+        console.log(2);
         return tot;
         
       },
       computeSubtotal(){
         var i;
         var sub = 0;
-        for(i = 0; i < this.$store.state.count; i++){
-            sub = sub + this.$store.state.order[i].priceFloat * this.$store.state.quantity[i];
+        for(i = 0; i < this.$store.state.paymentCount; i++){
+            sub = sub + this.$store.state.paymentOrder[i].priceFloat * this.$store.state.paymentQuantity[i];
         }
-        if(this.$store.state.count == 0){
+        if(this.$store.state.paymentCount == 0){
             return 0;
         }
         return sub;

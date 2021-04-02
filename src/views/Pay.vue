@@ -9,7 +9,7 @@ export default {
   components: {totalBox },
   computer: {
     users() {
-      return this.$store.state.order;
+      return this.$store.state.paymentOrder;
     }
   },
 
