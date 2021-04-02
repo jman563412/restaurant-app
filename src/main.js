@@ -10,7 +10,8 @@ const store = createStore({
             quantity: [],
             count: 0,
             tipPercent: 0,
-            specialInstructions: ""
+            specialInstructions: "",
+            review: "",
     }
 },
 mutations: {

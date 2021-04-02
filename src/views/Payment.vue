@@ -37,11 +37,12 @@
   <div class="ReviewBox">  
     <label ><font size="+2">Write a Review</font></label>
     <br>
-    <textarea rows="10" cols="100">
+    <textarea id="{{this.$store.state.review}}" v-model="this.$store.state.review" rows="10" cols="100">
       </textarea>
       <br>
-      <button class="submit">Submit</button>
+      <button class="btn btn-primary" type="submit">Submit</button>   
   </div>
+  <br>
 
 </template>
 
@@ -142,5 +143,8 @@ input {
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+}
+.ReviewBox{
+  border: none;
 }
 </style>

@@ -132,7 +132,7 @@ export default {
   display: inline-block;
   width: 100%;
   border: none;
-  color: rgb(31, 31, 31);
+  color: #353535;
   padding: 90px 128px;
   text-align: left;
   vertical-align: left;
