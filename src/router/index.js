@@ -13,11 +13,17 @@ import Help from '../views/Help.vue'
 import Refill from '../views/Refill.vue'
 import NotFound from '../views/NotFound.vue'
 import Payment from '../views/Payment.vue'
+import Login from '../views/Login.vue'
 
 const routes = [
   {
     path: '/',
     redirect: '/menu'
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
   },
   {
     path: '/menu',
