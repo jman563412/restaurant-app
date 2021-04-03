@@ -19,6 +19,10 @@ import Login from '../views/Login.vue'
 import TicTacToe from '../views/TicTacToe.vue'
 import ButtonClicker from '../views/ButtonClicker.vue'
 import Pay from '../views/Pay.vue'
+import Rock from '../views/musicPlaylists/Rock.vue'
+import Pop from '../views/musicPlaylists/Pop.vue'
+import EDM from '../views/musicPlaylists/EDM.vue'
+import Jazz from '../views/musicPlaylists/Jazz.vue'
 
 const routes = [
   {
@@ -130,7 +134,29 @@ const routes = [
     path: '/games/ButtonClicker',
     name: 'ButtonClicker',
     component: ButtonClicker
+  },
+  {
+    path: '/music/Rock',
+    name: 'Rock',
+    component: Rock
+  },
+  {    
+    path: '/music/Fancy-Restaurant-Music',
+    name: 'Jazz',
+    component: Jazz,
+  },
+  {    
+    path: '/music/Pop',
+    name: 'Pop',
+    component: Pop,
+  },
+  {    
+    path: '/music/EDM',
+    name: 'EDM',
+    component: EDM,
   }
+  
+
 ]
 
 const router = createRouter({

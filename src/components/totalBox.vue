@@ -27,6 +27,7 @@
                 Total - ${{computeTotal().toFixed(2)}}
                 <br>
                 <br>
+                {{Discount()}}
                 <router-link align="right" :to="{ path: '/payment' }" class="button3">
                     <font size="+3">Click to Pay</font>
                 </router-link>
@@ -42,6 +43,11 @@
 <script>
 export default {
   methods: {
+      Discount(){
+        if(Math.floor(Math.random() * 3) + 1 == 2){
+          alert("Congratulations you have won a free dessert!!");
+        }
+     },
       computeTotal(){
         var i;
         var tot = 0;
