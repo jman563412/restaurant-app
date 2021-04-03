@@ -73,7 +73,7 @@ export default {
 .card3 {
     margin: 10px;
     width: 100%;
-    padding: 15px 32px;
+      padding: 15px 32px;
     border:rgb(4, 228, 161);
     background-color:rgb(16, 155, 190);
   }

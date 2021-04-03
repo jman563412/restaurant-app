@@ -23,9 +23,11 @@
                             <div class="col-sm-3">
                                 <p class="text-warning mb-0">Cvv</p> <input type="password" name="cvv" placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3">
                             </div>
-                            <router-link align="right" :to="{ path: '/paymentComplete' }" class="button3">
-                              <font size="+3">></font>
-                            </router-link>
+                             <div @click="eraseData()">
+                                <p>
+                                    <span class="button3"><font size="+3">></font></span>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </form>
@@ -80,6 +82,17 @@ export default {
       },
       computeTax(){
           return (this.computeSubtotal() * .0825);
+      },
+      eraseData(){
+          this.$store.state.order = [];
+          this.$store.state.quantity = [];
+          this.$store.state.specialInstructions = "";
+          this.$store.state.count = 0;
+          this.$store.state.paymentOrder = [];
+          this.$store.state.paymentQuantity = [];
+          this.$store.state.paymentCount = 0;
+          this.$store.state.review = "";
+          this.$router.push('/paymentComplete');
       }
   }
 }
