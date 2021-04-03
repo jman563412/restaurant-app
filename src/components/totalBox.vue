@@ -1,9 +1,10 @@
 <template>
   <div class="footer">
-      <h1><font size="+20"></font></h1>
+    
+      <h1 v-if="this.$store.state.paymentCount == 0"><br><br>NO ORDERS YET<font size="+20"></font></h1>
     <div class="card-body">
       <h5 class="card-title"><font size="+3"></font></h5>
-      <p  align="left" class="card-text"> 
+      <p  v-if="this.$store.state.paymentCount > 0" align="left" class="card-text"> 
             <button class="button3" v-on:click="computeTip(15)">15%</button>
             <button class="button3" v-on:click="computeTip(20)">20%</button>
             <button class="button3" v-on:click="computeTip(25)">25%</button>
@@ -11,7 +12,7 @@
             <font size="+1"> Enter Percent</font>
       </p>
       
-      <h2 align="Center" class="card2">
+      <h2 v-if="this.$store.state.paymentCount > 0" align="Center" class="card2">
             <p align="left">
                 <br>
                 Sub - ${{computeSubtotal().toFixed(2)}}

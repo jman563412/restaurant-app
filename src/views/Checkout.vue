@@ -1,6 +1,9 @@
 <template> 
     <div class="container">
     <div class="card3">
+      <div v-if="this.$store.state.count == 0">
+        <font size="+10">NO ITEMS IN ORDER</font>
+        </div>
       <div v-for="item in this.$store.state.order" v-bind:key="item" class="col-12">
           <checkoutBox :priceFloat="item.priceFloat" :quan="getQuantity(item.name)" :name="item.name" :price="item.price" />
       </div>   
@@ -10,11 +13,11 @@
     <br>
     <br>
     <br>
-          <h2 align="Center" class="card3">
+          <h2 v-if="this.$store.state.count > 0" align="Center" class="card3">
         <h5 class="card-title"><font size="+10">Add Special Instructions</font></h5>
               <input class="button4" type="text" v-model="this.$store.state.specialInstructions">
       </h2>
-      <div @click="eraseOrder()">
+      <div v-if="this.$store.state.count > 0" @click="eraseOrder()">
         <p>
           <span class="button3">Click to Send Order</span>
           </p>

@@ -10,7 +10,7 @@
         <br>
         <font size="+0">Price - ${{ (priceFloat * quan).toFixed(2)}}</font>
       </p>
-
+      
     </div>
   </div>
 

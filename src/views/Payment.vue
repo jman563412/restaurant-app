@@ -93,6 +93,7 @@ export default {
           this.$store.state.paymentCount = 0;
           this.$store.state.review = "";
           this.$router.push('/paymentComplete');
+          this.$store.state.tipPercent = 0;
       }
   }
 }
