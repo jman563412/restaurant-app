@@ -52,7 +52,7 @@ const routes = [
     props: true
   },
   {
-    path: '/menu/Sides',
+    path: '/menu/Kids Menu',
     name: 'Sides',
     component: Sides,
     props: true
