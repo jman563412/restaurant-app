@@ -14,7 +14,11 @@
         <h5 class="card-title"><font size="+10">Add Special Instructions</font></h5>
               <input class="button4" type="text" v-model="this.$store.state.specialInstructions">
       </h2>
-      <router-link class="button3" v-on:click="eraseOrder()" :to="{ name: 'OrderComplete' }" >Click to Send Order</router-link>
+      <div @click="eraseOrder()">
+        <p>
+          <span class="button3">Click to Send Order</span>
+          </p>
+          </div>
       <br>
       <br>
       <br>
@@ -46,16 +50,18 @@ export default {
     },
     eraseOrder () {
         var i;
-        for(var i; i < this.$store.state.count; i++){
-            this.$store.state.paymentOrder.push(state.order[i]);
-            this.$store.state.paymentQuantity.push(state.quantity[i]);
+        console.log("count - " +this.$store.state.count);
+        for(var i = 0; i < this.$store.state.count; i++){
+            this.$store.state.paymentOrder.push(this.$store.state.order[i]);
+            this.$store.state.paymentQuantity.push(this.$store.state.quantity[i]);
+            this.$store.state.paymentCount++;
         }
-        this.$store.state.paymentCount = this.$store.state.paymentCount + this.$store.state.count;
-        console.log(this.$store.state.paymentCount);
+        console.log("Payment Count - "+this.$store.state.paymentCount);
         this.$store.state.order = [];
         this.$store.state.quantity = [];
         this.$store.state.specialInstructions = "";
         this.$store.state.count = 0;
+        this.$router.push('/orderComplete');
         
     },
   }
