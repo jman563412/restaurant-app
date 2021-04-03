@@ -15,6 +15,10 @@ const store = createStore({
             paymentOrder: [],
             paymentQuantity: [],
             paymentCount: 0,
+            userMode: 0,
+            //User Mode
+                //0 = regula customer
+                //1 = child
     }
 },
 mutations: {

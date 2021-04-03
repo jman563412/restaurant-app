@@ -3,7 +3,7 @@
     <div class="card-body">
       <h5 class="card-title"><font size="+3">{{ name }}</font></h5>
       <p class="card-text">
-        <button class="button2" v-on:click="decrementQuan(name)">-</button> &emsp; 
+        <button class="button2" v-on:click="decrementQuan(name )">-</button> &emsp; 
         <font size="+2">Quantity  - {{ quan }}</font>
         &emsp;
         <button class="button" v-on:click="incremenetQuan(name)">+</button>

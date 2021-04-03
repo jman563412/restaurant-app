@@ -23,6 +23,7 @@ import Rock from '../views/musicPlaylists/Rock.vue'
 import Pop from '../views/musicPlaylists/Pop.vue'
 import EDM from '../views/musicPlaylists/EDM.vue'
 import Jazz from '../views/musicPlaylists/Jazz.vue'
+import CashPayment from '../views/cashPayment.vue'
 
 const routes = [
   {
@@ -154,6 +155,11 @@ const routes = [
     path: '/music/EDM',
     name: 'EDM',
     component: EDM,
+  },
+  {
+    path: '/cashPayment',
+    name: 'CashPayment',
+    component: CashPayment,
   }
   
 

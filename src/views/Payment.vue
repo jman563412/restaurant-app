@@ -32,14 +32,21 @@
                     </div>
                 </form>
             </div>
+            <br>
+            <br>
+            <router-link  :to="{ path: '/cashPayment' }" class="button3">
+                    <font size="+3">Pay With Cash Instead</font>
+                </router-link>
         </div>
     </div>
 </div>
-
+<br>
+<br>
   <div class="ReviewBox">  
     <label ><font size="+2">Write a Review</font></label>
     <br>
-    <textarea id="{{this.$store.state.review}}" v-model="this.$store.state.review" rows="10" cols="100">
+    <textarea class="card6 mx-auto" id="{{this.$store.state.review}}" v-model="this.$store.state.review" rows="10" cols="100">
+        Write a Review
       </textarea>
       <br>
       <button class="btn btn-primary" type="submit">Submit</button>   
@@ -105,9 +112,16 @@ export default {
     background-color: white;
     max-width: 600px;
     border-radius: 15px;
-    margin: 150px 0 150px;
     padding: 50px;
     padding-bottom: 50px !important
+}
+
+.card6 {
+    border: none;
+    background-color: white;
+    max-width: 600px;
+    border-radius: 15px;
+
 }
 
 .heading {
@@ -159,6 +173,6 @@ input {
   cursor: pointer;
 }
 .ReviewBox{
-  border: none;
+   border-radius: 120px;
 }
 </style>
