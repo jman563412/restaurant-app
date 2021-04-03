@@ -68,7 +68,30 @@ export default {
   margin: 4px 2px;
   cursor: pointer;
 }
-.button2 {
+.button:hover {
+  background-color: #4CAF50;
+  border: none;
+  color: rgb(0, 110, 255);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button2:hover {
+  background-color: #ca3d3d;
+  border: none;
+  color: rgb(0, 110, 255);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}.button2 {
   background-color: #ca3d3d;
   border: none;
   color: white;
