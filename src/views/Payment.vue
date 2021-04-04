@@ -1,6 +1,9 @@
 <!--This payment form was created bu Kabir Bhatia and was used from bbboostrap.com -->
 
 <template>
+
+<button v-google-signin-button="clientId" class="google-signin-button"> Please Sign Into Google</button>
+
   <h1>Payment</h1>
   <div class="container-fluid">
     <div class="row d-flex justify-content-center">
@@ -56,7 +59,15 @@
 </template>
 
 <script>
+import GoogleSignInButton from 'vue-google-signin-button-directive'
+
 export default {
+    data: () =>({
+        clientId: '752522303631-12hja7brh0d0epu0j1o7g7m8klvoqejk.apps.googleusercontent.com'
+    }),
+     directives:{
+         GoogleSignInButton
+     },
      methods: {
       computeTotal(){
         var i;
@@ -101,12 +112,34 @@ export default {
           this.$store.state.review = "";
           this.$router.push('/paymentComplete');
           this.$store.state.tipPercent = 0;
+      },
+      OnGoogleAuthSuccess(idToken){
+          //TODO: idToken is either refresh or access?
+          //Then we set state var as access token
+          // Clear access token after payment when we reset other state vars
+          //TODO: We can probably move this to checkout 
+          //Make request to HTTP endpoint for submitting items to kitchen after order confirmation 
+          console.log(idToken);
+      },
+      OnGoogleAuthFail(error){
+          console.log(error);
       }
   }
 }
 </script>
 
 <style>
+
+.google-signin-button {
+  color: white;
+  background-color: red;
+  height: 50px;
+  font-size: 16px;
+  border-radius: 10px;
+  padding: 10px 20px 25px 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 .card5 {
     border: none;
     background-color: white;
