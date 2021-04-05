@@ -59,15 +59,11 @@
 </template>
 
 <script>
-import GoogleSignInButton from 'vue-google-signin-button-directive'
 
 export default {
     data: () =>({
         clientId: '752522303631-12hja7brh0d0epu0j1o7g7m8klvoqejk.apps.googleusercontent.com'
     }),
-     directives:{
-         GoogleSignInButton
-     },
      methods: {
       computeTotal(){
         var i;
@@ -113,17 +109,6 @@ export default {
           this.$router.push('/paymentComplete');
           this.$store.state.tipPercent = 0;
       },
-      OnGoogleAuthSuccess(idToken){
-          //TODO: idToken is either refresh or access?
-          //Then we set state var as access token
-          // Clear access token after payment when we reset other state vars
-          //TODO: We can probably move this to checkout 
-          //Make request to HTTP endpoint for submitting items to kitchen after order confirmation 
-          console.log(idToken);
-      },
-      OnGoogleAuthFail(error){
-          console.log(error);
-      }
   }
 }
 </script>
