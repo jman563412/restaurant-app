@@ -97,33 +97,27 @@ export default {
       computeTax(){
           return (this.computeSubtotal() * .0825);
       },
+
       eraseData(){
-          this.$store.state.order = [];
-          this.$store.state.quantity = [];
-          this.$store.state.specialInstructions = "";
-          this.$store.state.count = 0;
-          this.$store.state.paymentOrder = [];
-          this.$store.state.paymentQuantity = [];
-          this.$store.state.paymentCount = 0;
-          this.$store.state.review = "";
-          this.$router.push('/paymentComplete');
-          this.$store.state.tipPercent = 0;
-      },
+        this.$store.state.order = [];
+        this.$store.state.quantity = [];
+        this.$store.state.specialInstructions = "";
+        this.$store.state.count = 0;
+        this.$store.state.paymentOrder = [];
+        this.$store.state.paymentQuantity = [];
+        this.$store.state.paymentCount = 0;
+        this.$store.state.review = "";
+        this.$router.push('/paymentComplete');
+        this.$store.state.tipPercent = 0;
+        this.$store.state.idToken = '';
+        //Signing out user on page load for security
+        this.$gAuth.signOut();
+    },
   }
 }
 </script>
 
 <style>
-
-.google-signin-button {
-  color: white;
-  background-color: red;
-  height: 50px;
-  font-size: 16px;
-  border-radius: 10px;
-  padding: 10px 20px 25px 20px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
 
 .card5 {
     border: none;

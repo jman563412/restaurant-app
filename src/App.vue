@@ -1,4 +1,5 @@
 <template>
+
   <div id="nav">
     <router-link :to="{ name: 'Menu' }">Menu</router-link>
     <router-link :to="{ name: 'Games' }">Games</router-link>
@@ -11,13 +12,27 @@
   </div>
   <router-view/>
 </template>
+
 <script>
+//Throws an error in vs code if we keep the import (still works though)
+//But chrome debugger throws error "GoogleLogIn not defined if we delete it.."
+import GoogleLogIn from './components/GoogleLogIn.vue'
+
+export default {
+  name: 'App',
+  components: {
+    GoogleLogIn
+  }
+}
+
 </script>
+
 
 <style>
 body {
   background-color: #ddd;
 }
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -47,6 +62,7 @@ body {
     color: #000000;
     font-size: 1.1em;
 }
+
 .navbar .navbar-nav .nav-link:hover{
     color: #808080;
 }

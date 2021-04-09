@@ -1,57 +1,49 @@
 <template>
 <div>
-  <!-- <h1>IsInit: {{ Vue3GoogleOauth.isInit }}</h1>
-  <h1>IsAuthorized: {{ Vue3GoogleOauth.isAuthorized }}</h1> -->
-<div v-if="!this.$store.state.userSignedIn">
-  <h5> To continue, please Sign in with your Google account:</h5>
-    <button class="google-signin-button" @click="handleClickSignIn" >Sign in</button>
-</div>
-
-  <h2 v-if="this.$store.state.userSignedIn">You are signed in as: <br /> {{user}} <br /> Redirecting ...</h2>
-
+  <h1>IsInit: {{ Vue3GoogleOauth.isInit }}</h1>
+  <h1>IsAuthorized: {{ Vue3GoogleOauth.isAuthorized }}</h1>
+  <h2 v-if="user">signed user: {{user}}</h2>
+  <button @click="handleClickSignIn" :disabled="!Vue3GoogleOauth.isInit || Vue3GoogleOauth.isAuthorized">sign in</button>
+  <button @click="handleClickGetAuthCode" :disabled="!Vue3GoogleOauth.isInit">get authCode</button>
+  <button @click="handleClickSignOut" :disabled="!Vue3GoogleOauth.isAuthorized">sign out</button>
+  <button @click="handleClickDisconnect" :disabled="!Vue3GoogleOauth.isAuthorized">disconnect</button>
 </div>
 </template>
 
 <script>
 import { inject, toRefs } from "vue";
 export default {
-  name: "Login",
-  
+  name: "GoogleLogIn",
+  props: {
+    msg: String,
+  },
   data(){
     return {
       user: '',
-      loggedIn: Boolean
     }
   },
-  
   methods: {
-
     async handleClickSignIn(){
       try {
         const googleUser = await this.$gAuth.signIn();
         if (!googleUser) {
           return null;
-        } else{
-          this.$store.state.userSignedIn = true;
         }
-        
         // console.log("googleUser", googleUser);
         this.user = googleUser.getBasicProfile().getEmail();
-        // console.log("getId", this.user);
-        // console.log("getBasicProfile", googleUser.getBasicProfile());
-        let getAuthResponse = this.$gAuth.instance.currentUser.get().getAuthResponse();
-        this.loggedIn = true;
-        this.$store.state.id_token= getAuthResponse['id_token'];
-        console.log("id token stored in state: ", this.$store.state.id_token)
-
+        console.log("getId", this.user);
+        console.log("getBasicProfile", googleUser.getBasicProfile());
+        // console.log("getAuthResponse", googleUser.getAuthResponse());
+        console.log(
+          "getAuthResponse",
+          this.$gAuth.instance.currentUser.get().getAuthResponse()
+        );
       } catch (error) {
         //on fail do something
         console.error(error);
         return null;
       }
     },
-
-    //Here for utility, but we probably won't need since cloud function just needs the id_token field but not auth code
     async handleClickGetAuthCode(){
       try {
         const authCode = await this.$gAuth.getAuthCode();
@@ -62,19 +54,21 @@ export default {
         return null;
       }
     },
-
     async handleClickSignOut() {
       try {
         await this.$gAuth.signOut();
-        console.log("isAuthorized", this.$store.state.userSignedIn);
+        console.log("isAuthorized", this.Vue3GoogleOauth.isAuthorized);
         this.user = "";
+        this.$store.state.userSignedIn = false;
+        
       } catch (error) {
         console.error(error);
       }
     },
+    handleClickDisconnect() {
+      window.location.href = `https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=${window.location.href}`;
+    },
   },
-
-  //Dynamically injecting google login plugin from the 
   setup(props) {
     const { isSignIn } = toRefs(props);
     const Vue3GoogleOauth = inject("Vue3GoogleOauth");
@@ -82,6 +76,7 @@ export default {
     return {
       Vue3GoogleOauth,
       handleClickLogin,
+      isSignIn,
     };
   },
 };
@@ -114,15 +109,5 @@ button:disabled {
   background: #fff;
   color: #ddd;
   cursor: not-allowed;
-}
-
-.google-signin-button {
-  color: white;
-  background-color: red;
-  height: 50px;
-  font-size: 16px;
-  border-radius: 10px;
-  padding: 10px 20px 25px 20px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 </style>

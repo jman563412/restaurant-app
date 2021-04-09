@@ -1,6 +1,7 @@
 <template> 
     <div class="container">
     <div class="card3">
+      <div>
       <div v-if="this.$store.state.count == 0">
         <font size="+10">NO ITEMS IN ORDER</font>
         </div>
@@ -25,7 +26,7 @@
       <br>
       <br>
       <br>
-      <br>
+      </div>
   </div>
 
 
@@ -36,12 +37,20 @@ import checkoutBox from '@/components/checkoutBox.vue'
 import totalBox from '@/components/totalBox.vue'
 export default {
   components: { checkoutBox, totalBox },
+  
   computer: {
     users() {
       return this.$store.state.order;
     }
   },
+
   methods: {
+    mounted(){
+      if (!this.$store.state.userSignedIn){
+        this.$router.push('/login');
+      }
+    },
+
     getQuantity(name){
       var i;
       for(i = 0; i < this.$store.state.count; i++){
