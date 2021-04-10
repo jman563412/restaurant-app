@@ -24,6 +24,8 @@ import Pop from '../views/musicPlaylists/Pop.vue'
 import EDM from '../views/musicPlaylists/EDM.vue'
 import Jazz from '../views/musicPlaylists/Jazz.vue'
 import CashPayment from '../views/cashPayment.vue'
+import store from './../main.js'
+
 
 const routes = [
   {

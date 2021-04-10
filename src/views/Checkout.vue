@@ -1,5 +1,7 @@
 <template> 
-    <div class="container">
+
+    <div v-if="!this.$store.state.userSignedIn ">Please log in first by selecting the Login tab</div>
+    <div v-if="this.$store.state.userSignedIn" class="container">
     <div class="card3">
       <div>
       <div v-if="this.$store.state.count == 0">
@@ -18,7 +20,7 @@
         <h5 class="card-title"><font size="+10">Add Special Instructions</font></h5>
               <input class="button4" type="text" v-model="this.$store.state.specialInstructions">
       </h2>
-      <div v-if="this.$store.state.count > 0" @click="eraseOrder()">
+      <div v-if="this.$store.state.count > 0" @click="eraseOrder(), submitOrder()">
         <p>
           <span class="button3">Click to Send Order</span>
           </p>
@@ -35,9 +37,13 @@
 <script>
 import checkoutBox from '@/components/checkoutBox.vue'
 import totalBox from '@/components/totalBox.vue'
+import { inject, toRefs } from "vue";
+
+
 export default {
-  components: { checkoutBox, totalBox },
   
+  components: { checkoutBox, totalBox },
+
   computer: {
     users() {
       return this.$store.state.order;
@@ -45,12 +51,6 @@ export default {
   },
 
   methods: {
-    mounted(){
-      if (!this.$store.state.userSignedIn){
-        this.$router.push('/login');
-      }
-    },
-
     getQuantity(name){
       var i;
       for(i = 0; i < this.$store.state.count; i++){
@@ -60,24 +60,46 @@ export default {
       }
       return 0;
     },
+
     eraseOrder () {
         var i;
-        console.log("count - " +this.$store.state.count);
+        console.log("count - " + this.$store.state.count);
         for(var i = 0; i < this.$store.state.count; i++){
             this.$store.state.paymentOrder.push(this.$store.state.order[i]);
             this.$store.state.paymentQuantity.push(this.$store.state.quantity[i]);
             this.$store.state.paymentCount++;
         }
-        console.log("Payment Count - "+this.$store.state.paymentCount);
+        console.log("Payment Count - " + this.$store.state.paymentCount);
         this.$store.state.order = [];
         this.$store.state.quantity = [];
         this.$store.state.specialInstructions = "";
         this.$store.state.count = 0;
-        this.$router.push('/orderComplete');
-        
+        this.$router.push('/orderComplete');  
     },
-  }
+    
+    async handleClickGetAuthCode(){
+      try {
+        const authCode = await this.$gAuth.getAuthCode();
+        console.log("authCode", authCode);
+      } catch(error) {
+        //on fail do something
+        console.error(error);
+        return null;
+      }
+    },
 
+    //Injecting google sign-in into page
+    setup(props) {
+      const { isSignIn } = toRefs(props);
+      const Vue3GoogleOauth = inject("Vue3GoogleOauth");
+      const handleClickLogin = () => {};
+      return {
+        Vue3GoogleOauth,
+        handleClickLogin,
+        isSignIn
+      }
+    }
+  }
 }
 </script>
 

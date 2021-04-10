@@ -33,24 +33,63 @@ export default {
         this.calculateTimeSinceOrderPlaced();
     },
     methods:{
+
         calculateTimeSinceOrderPlaced(currentTime){
         //orderTimer = Current time - original time of submission from DB 
 
             
         },
 
+        //Not sure if using setInterval here will throw an error
         incrementTimeSinceOrder(){
             this.orderTimer = setInterval(()=>{
                 this.orderTimer +=10;
-            }, 10);
+            }, 1000);
         },
 
-        closeThisOrder(){
-            //Send call to HTTP endpoint to remove order from outstandingOrders table
-            //Passing in orderId we received back after original DB insert
-            
-            this.orderClosed = True
-        },
+
+  //Sends request to endpoint for removing an order
+  //All we have to do is pass the order number in the request body
+  closeThisOrder(){
+
+    //Building itemsDict to convert to JSON and sent to endpoint to clear the order from the outstandingOrders table (endpoint name = clearOrder)
+    //TODO: This might be wrong cause JS doesn't maintain order of arrays, need to convert to dict with key: itemName, value: itemQuantity
+    for(i = 0; i < this.$store.state.paymentCount; i++){
+            this.$store.state.itemsDict[this.$store.state.paymentOrder[i]] = Number.parseInt(this.$store.state.paymentQuantity[i])
+        }
+
+        
+        console.log(itemsDict);
+
+        //Then, we make the request to the endpoint
+        //We may need to add more request headers
+        let requestOptions = {
+          
+          //Idk if this will work lmao
+          method: "GET",
+
+          headers: {
+          "Authorization": 'bearer ' + this.$store.state.token_id,
+          'Content-Type': 'application/json'
+          },
+
+          body: '',
+
+        }
+
+        //Do we need to JSON.stringify the requestOptions, or just the body?
+        fetch('https://us-central1-artful-oxygen-306721.cloudfunctions.net/clearOrder', requestOptions.then((success, reject) =>{
+          if(reject){
+            console.log(Reject.message);
+          } else {
+            console.log(success);
+
+            //Go back to default screen
+            this.$router.push('/');
+                }
+            })
+        )
+    },
 
         setSpecialInstructions(){
             
@@ -69,7 +108,7 @@ export default {
     //Any of these will be passed through the tag of the parent component <KitchenOrderCard customerName="" orderItemsDict=""/> tag
     //Accessed in child component like {{ customerName }}
     props:{
-        orderDict: []
+        orderDict: {}
     }
 }
 </script>

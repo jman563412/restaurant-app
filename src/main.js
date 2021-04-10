@@ -13,6 +13,7 @@ const store = createStore({
             quantity: [],
             count: 0,
             id_token: '',
+            itemsDict: {},
             tipPercent: 0,
             specialInstructions: "",
             review: "",
@@ -20,6 +21,8 @@ const store = createStore({
             paymentQuantity: [],
             paymentCount: 0,
             userMode: 0,
+            user: '',
+            
             //User Mode
                 //0 = regular customer
                 //1 = child

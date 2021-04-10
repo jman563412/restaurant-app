@@ -14,8 +14,6 @@
 </template>
 
 <script>
-//Throws an error in vs code if we keep the import (still works though)
-//But chrome debugger throws error "GoogleLogIn not defined if we delete it.."
 import GoogleLogIn from './components/GoogleLogIn.vue'
 
 export default {

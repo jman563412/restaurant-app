@@ -7,24 +7,42 @@
     <button class="google-signin-button" @click="handleClickSignIn" >Sign in</button>
 </div>
 
-  <h2 v-if="this.$store.state.userSignedIn">You are signed in as: <br /> {{user}} <br /> Redirecting ...</h2>
-
+  <h2 v-if="this.$store.state.userSignedIn">You are signed in as: <br /> {{this.$store.state.user}} <br /> <br /> You can submit your order and pay now!!</h2>
+  
 </div>
 </template>
 
 <script>
 import { inject, toRefs } from "vue";
+
 export default {
   name: "Login",
   
   data(){
     return {
       user: '',
-      loggedIn: Boolean
     }
   },
   
   methods: {
+
+    mounted(){
+      
+      //Used for dev purposes, if you want to sign user out on page load
+      //handleClickSignOut();
+    },
+
+    async handleClickSignOut() {
+      try {
+        await this.$gAuth.signOut();
+        console.log("isAuthorized", this.Vue3GoogleOauth.isAuthorized);
+
+        this.$store.state.userSignedIn = false;
+        this.$store.state.id_token = '';
+      } catch (error) {
+        console.error(error);
+      }
+    },
 
     async handleClickSignIn(){
       try {
@@ -33,15 +51,17 @@ export default {
           return null;
         } else{
           this.$store.state.userSignedIn = true;
+          this.$router.push('/');
         }
         
         // console.log("googleUser", googleUser);
-        this.user = googleUser.getBasicProfile().getEmail();
+        this.$store.state.user = googleUser.getBasicProfile().getEmail();
         // console.log("getId", this.user);
         // console.log("getBasicProfile", googleUser.getBasicProfile());
         let getAuthResponse = this.$gAuth.instance.currentUser.get().getAuthResponse();
-        this.loggedIn = true;
-        this.$store.state.id_token= getAuthResponse['id_token'];
+        this.$store.state.userSignedIn = true;
+        this.$store.state.user = getauthResponse["email"];
+        this.$store.state.id_token = getAuthResponse['id_token'];
         console.log("id token stored in state: ", this.$store.state.id_token)
 
       } catch (error) {

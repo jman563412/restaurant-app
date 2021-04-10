@@ -1,16 +1,12 @@
 <!--This payment form was created bu Kabir Bhatia and was used from bbboostrap.com -->
 
 <template>
-
-<button v-google-signin-button="clientId" class="google-signin-button"> Please Sign Into Google</button>
-
   <h1>Payment</h1>
   <div class="container-fluid">
     <div class="row d-flex justify-content-center">
         <div class="col-sm-12">
             <div class="card5 mx-auto">
                 <p class="heading"><font size="+2">Payment Details</font></p>
-
                 <form class="card-details ">
                     <div class="form-group mb-0">
                         <p class="text-warning mb-0">Card Number</p><br> <input type="text" name="card-num" placeholder="1234 5678 9012 3457" size="19" id="cno" minlength="16" maxlength="16">
@@ -110,7 +106,8 @@ export default {
         this.$router.push('/paymentComplete');
         this.$store.state.tipPercent = 0;
         this.$store.state.idToken = '';
-        //Signing out user on page load for security
+
+        //Signing out user for next customer
         this.$gAuth.signOut();
     },
   }
