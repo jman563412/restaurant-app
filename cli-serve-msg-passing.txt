@@ -1,0 +1,34 @@
+Request BODY is a JSON STRING
+Headers are a JSON object
+
+
+
+Client: 
+Passing data through POST request (from client)
+method: "POST",
+headers: {"Content-type": "application/json; charset=UTF-8"}
+
+let itemsDict = entireResponsedata (as a JSON object)
+
+body: JSON.stringify(itemsDict)
+
+.then(response => response.json()){
+    .then(json => console.log(json));
+    .catch(err => console.log(err));
+}
+
+^Processing callback responses
+
+
+Server:
+
+const escapeHtml = require('escape-html');
+
+exports.functionName = (req, res) => {
+    let clientItemsDict = req.body.itemsDict;
+    let specialInstructions = req.body.specialInstructions;
+
+    Submit to database
+    Parse for returned orderNumber
+    Return orderNumber to client
+}
