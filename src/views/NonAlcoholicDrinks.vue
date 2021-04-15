@@ -1,5 +1,5 @@
 <template>
-  <h1>Entrees</h1>
+  <h1>Non-Alcoholic Drinks</h1>
   <div class="container">
     <div class="row">
       <div v-for="item in entires" :key="item.name" class="col-6">

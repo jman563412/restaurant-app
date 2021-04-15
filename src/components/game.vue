@@ -5,8 +5,8 @@
       <h5 class="card-title">{{ foodType }}</h5>
       <p class="card-text">
       </p>
-      <router-link :to="{ path: '/menu/' + foodType}" class="button5">
-        Browse {{foodType}} 
+      <router-link :to="{ path: '/games/' + foodType}" class="button5">
+        Play 
       </router-link>
     </div>
   </div>

@@ -1,20 +1,17 @@
 export const itemTypes = [
   {
     "name": "Entrees",
-    "image": require("@/assets/img/entrees.jpg")
-  },
-  {
-    "name": "Sides",
-    "image": require("@/assets/img/sides.jpg")
+    "image": require("@/assets/img/ChickenTenders.jpg")
   },
   {
     "name": "Appetizers",
-    "image": require("@/assets/img/appetizers.jpg")
+    "image": require("@/assets/img/Nachos.jpg")
   },
   {
-    "name": "Desserts",
-    "image": require("@/assets/img/desserts.jpg")
+    "name": "Kids Menu",
+    "image": require("@/assets/img/Slider.jpg")
   },
+
   {
     "name": "Non-Alcoholic-Drinks",
     "image": require("@/assets/img/non-alcoholic.jpg")
@@ -22,5 +19,9 @@ export const itemTypes = [
   {
     "name": "Alcoholic-Drinks",
     "image": require("@/assets/img/alcoholic.jpg")
-  }
+  },
+  {
+    "name": "Desserts",
+    "image": require("@/assets/img/Chocolatecake.jpg")
+  },
 ]

@@ -5,6 +5,12 @@
 npm install
 ```
 
+## Install Vuex (project setup) 
+```
+npm install vuex@next --save
+```
+
+
 ### Compiles and hot-reloads for development
 ```
 npm run serve
