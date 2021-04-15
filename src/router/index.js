@@ -25,7 +25,7 @@ import EDM from '../views/musicPlaylists/EDM.vue'
 import Jazz from '../views/musicPlaylists/Jazz.vue'
 import CashPayment from '../views/cashPayment.vue'
 import store from './../main.js'
-
+import Kitchen from '../views/Kitchen.vue'
 
 const routes = [
   {
@@ -162,9 +162,13 @@ const routes = [
     path: '/cashPayment',
     name: 'CashPayment',
     component: CashPayment,
-  }
+  },
   
-
+  {
+    path: '/kitchen',
+    name: 'Kitchen',
+    component: Kitchen
+  }
 ]
 
 const router = createRouter({

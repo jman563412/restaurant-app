@@ -1,8 +1,8 @@
 <template>
 <!-- For each order in our array of JSON objects (containing order info), we generate an order card-->
-<div v-for="order in itemsDict" :key="order">
+<div v-for="order in ordersDict" :key="order">
 
-<KitchenOrderCard :orderDict="order"/>
+<KitchenOrderCard :orderDict="order" @close="this.removeCard" v-if="this.isOrderClosed"/>
 </div>
 
 
@@ -16,8 +16,9 @@ export default {
 
     data(){
         return {
-            //For dumping parsed server response
-            itemsDict: {}
+            //Nested object holding order objects
+            ordersDict: {},
+            serverResponse: {}
         }
     },
 
@@ -29,51 +30,49 @@ export default {
 
 methods:{
 
+    //We call this function both on mounted and at intervals to see if any other orders have come in
     getAllOutstandingOrders(){
-
-        //Send query to HTTP endpoint for all rows in testOutstandingOrders table
-        fetch('https://us-central1-artful-oxygen-306721.cloudfunctions.net/getOutstandingOrders',{
-
-        }, {
-            'Authorization': 'Bearer ' + this.$store.state.id_token
-        }).then(res =>{
-            res.json()
-
-        }).then(data => {
-            console.log("ORDER INFO:", data);
-
-            //Here we parse returned data for order in data, for item in order (this is a string)
-
-            //Special Instructions is a separate field
-
-            //Also get time ordered, which is a separate field
-
-            //Bind order number to the header value in kitchenordercard
+        fetch('https://us-central1-artful-oxygen-306721.cloudfunctions.net/purchaseConfirmation', {
             
-        }).catch(err =>{
-            console.log(err.message)
-        })
+            method: 'POST',
+
+            headers: {
+                'Authorization': 'Bearer ' + this.$store.state.id_token,
+                'Content-Type': 'application/json',
+            },
+
+            body: JSON.stringify({"cmdType": "getOutstandingOrders"})
+            })
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                //If there is an orderNumber not in our current list used for the KitchenOrderCards, add it, the kitchen adds a new KitchenOrderCard for updated data
+                for (Object(order) in data){
+                    console.log(order);
+
+                    //Values of ordersDict should just be the actual order objects, which we can compare by orderNumber
+                    //If an orderNumber exists in the resposne that's not in our client-side ordersDict, push it on
+                    if (!(order["orderNumber"] in (Object.values(this.ordersDict["orderNumber"])))){
+                        ordersDict.push(order)
+                    }  
+                }
+        });
     },
     
     beginPolling(){
-        //Query to check and see if new orders have been added to the DB
-        //SELECT * FROM outstandingOrdersTable WHERE orderId NOT LIKE (orderId's in current dict)
-        //Emit custom event for kitchen to reload next order
-        
+        //SetInterval, every x seconds call getAllOutstandingOrders
+        //Checking to see if any new orders were placed also done inside that function, ordersDict should update automatically
+        setInterval(()=>{
+        }, 10*1000)
+        },
+
     },
 
-},
-
-props:{
-    
-    //serverResponse should match the format of the return from the DB query (either nested arrays or one array?)
-    //Internal array passed to child component along with special instructions and time submitted as separate parameters (KitchenOrderCard)
-    serverResponse: [],
-    
+    removeCard(){
+        this.isOrderClosed = true;
     }
-
 }
-
 </script>
 
 <style>

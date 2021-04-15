@@ -3,12 +3,11 @@
     <div v-if="isOrderClosed" class="card text-white bg-primary mb-3" style="max-width: 18rem;">
         <div class="card-header">
         <button type="button" class="btn-close" aria-label="Close" @click="closeThisOrder"></button>
-        {{customerName}}
         </div>
       
       <div class="card-body">
           <!-- V-for each item in itemsDict, make one h5 of this type-->
-        <h5 v-for="item in orderItemsDict" :key="item" class="card-title">
+        <h5 v-for="item in orderDict" :key="item" class="card-title">
 
             <br />
         </h5>
@@ -24,91 +23,75 @@ export default {
     data(){
         return{
             timeSinceOrderPlaced: null,
-            isOrderClosed: Boolean,     
+            isOrderClosed: Boolean,
+            orderNumber: orderDict["orderNumber"]
         }
     },
+
     mounted(){
+        this.isOrderClosed = False;
         this.setTimeOrdered();
         this.setSpecialInstructions();
         this.calculateTimeSinceOrderPlaced();
     },
     methods:{
 
-        calculateTimeSinceOrderPlaced(currentTime){
-        //orderTimer = Current time - original time of submission from DB 
+        //Sends request to endpoint for removing an order
+        //Order number passed in request body
+        buildRequestOptions(){
 
-            
+                let requestOptions = {
+                
+                //Idk if this will work lmao
+                method: "POST",
+
+                headers: {
+                "Authorization": 'Bearer ' + this.$store.state.token_id,
+                'Content-Type': 'application/json'
+                },
+
+                body: JSON.stringify ({
+                    "cmdType": "eraseOrder",
+                    "orderNumber": this.orderNumber
+                })
+            }
         },
-
-        //Not sure if using setInterval here will throw an error
-        incrementTimeSinceOrder(){
-            this.orderTimer = setInterval(()=>{
-                this.orderTimer +=10;
-            }, 1000);
-        },
-
-
-  //Sends request to endpoint for removing an order
-  //All we have to do is pass the order number in the request body
-  closeThisOrder(){
-
-    //Building itemsDict to convert to JSON and sent to endpoint to clear the order from the outstandingOrders table (endpoint name = clearOrder)
-    //TODO: This might be wrong cause JS doesn't maintain order of arrays, need to convert to dict with key: itemName, value: itemQuantity
-    for(i = 0; i < this.$store.state.paymentCount; i++){
-            this.$store.state.itemsDict[this.$store.state.paymentOrder[i]] = Number.parseInt(this.$store.state.paymentQuantity[i])
-        }
-
         
-        console.log(itemsDict);
+        //For closing out an order
+        closeThisOrder(){
 
-        //Then, we make the request to the endpoint
-        //We may need to add more request headers
-        let requestOptions = {
-          
-          //Idk if this will work lmao
-          method: "GET",
+            let requestOptions = this.buildRequestOptions();
 
-          headers: {
-          "Authorization": 'bearer ' + this.$store.state.token_id,
-          'Content-Type': 'application/json'
-          },
+            //First we make the request to delete the order from the testOutstandingOrders table
+            fetch('https://us-central1-artful-oxygen-306721.cloudfunctions.net/purchaseConfirmation', requestOptions)
+            .then((response)=>{
+                return response.json()
+            }).then((data)=>{
+                console.log(data);
 
-          body: '',
-
-        }
-
-        //Do we need to JSON.stringify the requestOptions, or just the body?
-        fetch('https://us-central1-artful-oxygen-306721.cloudfunctions.net/clearOrder', requestOptions.then((success, reject) =>{
-          if(reject){
-            console.log(Reject.message);
-          } else {
-            console.log(success);
-
-            //Go back to default screen
-            this.$router.push('/');
-                }
+                //By emitting this event the order card is closed in the main Kitchen component
+                this.$emit('close');
             })
-        )
-    },
-
-        setSpecialInstructions(){
+        },
+        
+        setSpecialInstructions() {
             
+            //Might need to access in a different way
             indexOfInstructions = this.orderItemsDict.findIndex((dictItem)=>{
-                return dictItem.attr1 == "SI"
+                return dictItem.attr1 == "specialInstructions"
             });
 
-            this.specialInstructions = this.orderItemsDict[indexOfInstructions];
+            this.specialInstructions = this.orderDict[indexOfInstructions];
         },
-
-        setTimeOrdered(){
-            
-        }
     },
     
     //Any of these will be passed through the tag of the parent component <KitchenOrderCard customerName="" orderItemsDict=""/> tag
-    //Accessed in child component like {{ customerName }}
     props:{
-        orderDict: {}
+        orderDict: {},
+
+        //DON"T USE THE STATE VAR HERE
+        specialInstructions: String,
+        
     }
 }
 </script>

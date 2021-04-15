@@ -60,7 +60,7 @@ export default {
         // console.log("getBasicProfile", googleUser.getBasicProfile());
         let getAuthResponse = this.$gAuth.instance.currentUser.get().getAuthResponse();
         this.$store.state.userSignedIn = true;
-        this.$store.state.user = getauthResponse["email"];
+        this.$store.state.user = getAuthResponse["email"];
         this.$store.state.id_token = getAuthResponse['id_token'];
         console.log("id token stored in state: ", this.$store.state.id_token)
 

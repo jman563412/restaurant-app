@@ -10,6 +10,8 @@ const store = createStore({
     state() {
         return {
             order: [],
+            //Used to occasionally poll endpoint for if user's order is ready
+            orderNumber: Number,
             quantity: [],
             count: 0,
             id_token: '',

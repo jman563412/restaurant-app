@@ -20,7 +20,7 @@
         <h5 class="card-title"><font size="+10">Add Special Instructions</font></h5>
               <input class="button4" type="text" v-model="this.$store.state.specialInstructions">
       </h2>
-      <div v-if="this.$store.state.count > 0" @click="eraseOrder(), submitOrder()">
+      <div v-if="this.$store.state.count > 0" @click="submitOrder()">
         <p>
           <span class="button3">Click to Send Order</span>
           </p>
@@ -38,6 +38,7 @@
 import checkoutBox from '@/components/checkoutBox.vue'
 import totalBox from '@/components/totalBox.vue'
 import { inject, toRefs } from "vue";
+import { request } from 'node:http';
 
 
 export default {
@@ -51,6 +52,7 @@ export default {
   },
 
   methods: {
+
     getQuantity(name){
       var i;
       for(i = 0; i < this.$store.state.count; i++){
@@ -76,16 +78,52 @@ export default {
         this.$store.state.count = 0;
         this.$router.push('/orderComplete');  
     },
-    
-    async handleClickGetAuthCode(){
-      try {
-        const authCode = await this.$gAuth.getAuthCode();
-        console.log("authCode", authCode);
-      } catch(error) {
-        //on fail do something
-        console.error(error);
-        return null;
+
+    //Makes an object of the order items and special instructions, called by submitOrder  
+    assembleRequestItems(){
+      var orderItems = {};
+      let specialInstructions = this.$store.state.specialInstructions;
+     
+      //Assembling dict of items where key: itemName, value:itemAmount
+      for (var item in this.$store.state.order){
+        thisItemQuantity = this.getQuantity(item.name);
+        orderItems[`${item.name}`] = thisItemQuantity;
       }
+
+      let requestBody = {
+        "orderItems": orderItems,
+        "specialInstructions": specialInstructions,
+        "cmdType": 'purchaseConfirmation'
+      }
+
+      return requestBody;
+    },
+
+    submitOrder(){
+
+    let requestBody = this.assembleRequestItems();
+
+    fetch('https://us-central1-artful-oxygen-306721.cloudfunctions.net/purchaseConfirmation', {
+
+      method: 'POST',
+
+      headers: {
+        'Authorization': this.$store.state.id_token,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(requestBody)
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        //This should just return the assigned order number we'll store it in a state var and then start polling for updates
+        console.log(data);
+        this.$store.state.orderNumber = data.orderNumber;
+
+        //We must wait to erase the order until the DB call returns cause we call the state variable to pass params to the endpoint (so we put it in the callback) 
+        this.eraseOrder();
+      });
     },
 
     //Injecting google sign-in into page
