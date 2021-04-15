@@ -1,8 +1,8 @@
 export const entires = [
   {
     "foodType": "Side",
-    "name": "Kids Chicken Tenders",
-    "image": require("@/assets/img/ChickenTenders.jpg"),
+    "name": "Baked Beans",
+    "image": require("@/assets/img/BakedBeans.jpg"),
     "price": "$7.99",
     "priceFloat": 7.99,
     "calories": "610",
@@ -19,8 +19,8 @@ export const entires = [
   },
   {
     "foodType": "Side 444",
-    "name": "Kids Mac and Cheese",   
-    "image": require("@/assets/img/MacAndCheese.jpg"),
+    "name": "Baked Potato",   
+    "image": require("@/assets/img/BakedPotato.jpg"),
     "price": "$7.99",
     "priceFloat": 7.99,
     "calories": "610",
@@ -36,8 +36,8 @@ export const entires = [
   },
   {
     "foodType": "Side 444",
-    "name": "Kids Cheese Pizza",   
-    "image": require("@/assets/img/CheesePizza.jpg"),
+    "name": "Side Of Fruit",   
+    "image": require("@/assets/img/SideOfFruit.jpg"),
     "price": "$7.99",
     "priceFloat": 7.99,
     "calories": "610",
@@ -53,8 +53,8 @@ export const entires = [
   },
   {
     "foodType": "Side 444",
-    "name": "Kids Pepperoni Pizza",   
-    "image": require("@/assets/img/PepperoniPizza.jpg"),
+    "name": "Dinner Rolls",   
+    "image": require("@/assets/img/DinnerRolls.jpg"),
     "price": "$7.99",
     "priceFloat": 7.99,
     "calories": "610",
@@ -70,8 +70,8 @@ export const entires = [
   },
   {
     "foodType": "Side 444",
-    "name": "Kids Sliders",   
-    "image": require("@/assets/img/Slider.jpg"),
+    "name": "Side of Vegtables",   
+    "image": require("@/assets/img/SideOfVegtables.jpg"),
     "price": "$7.99",
     "priceFloat": 7.99,
     "calories": "610",
@@ -87,8 +87,8 @@ export const entires = [
   },
   {
     "foodType": "Side 444",
-    "name": "Kids Quesadilla",   
-    "image": require("@/assets/img/KidQue.jpg"),
+    "name": "Coleslaw",   
+    "image": require("@/assets/img/Coleslaw.jpg"),
     "price": "$7.99",
     "priceFloat": 7.99,
     "calories": "610",

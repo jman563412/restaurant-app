@@ -4,9 +4,10 @@
     <div class="card-body">
       <h5 class="card-title">{{ foodType }}</h5>
       <p class="card-text">
+        This is a itemType
       </p>
       <router-link :to="{ path: '/menu/' + foodType}" class="button5">
-        Browse {{foodType}} 
+        Browse {{ foodType }}
       </router-link>
     </div>
   </div>
